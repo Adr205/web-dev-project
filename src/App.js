@@ -5,6 +5,9 @@ const config = require("./config");
 
 const FEATURED_API =  config.api.Featured_Api;
 const SEARCH_API =  config.api.Search_Api;
+const GFeatured_API = config.api.GamesFeaturedApi;
+const GSearch_API = config.api.GamesSearchApi;
+const GSearchOrder_API = config.api.GameSearchOrdering;
 
 // config.db.connectionUrl
 
@@ -13,24 +16,26 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [searchTerm,setSearchTerm] = useState("");
 
-  useEffect( () =>{
-    getMovie(FEATURED_API)
-  }, []);
+
 
   const getMovie = (API) =>{
     fetch(API)
     .then((res) => res.json())
     .then((data) =>{
-      console.log(data);
+      console.log(data.results);
       setMovies(data.results);
     })
   }
 
+  useEffect( () =>{
+    // getMovie(FEATURED_API)
+    getMovie(GFeatured_API);
+  }, []);  
 
   const handleOnSubmit = (e) =>{
     e.preventDefault();
 
-    getMovie(SEARCH_API + searchTerm);
+    getMovie(GSearch_API + searchTerm + GSearchOrder_API);
       setSearchTerm("");
   }
 
