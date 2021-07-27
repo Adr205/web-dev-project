@@ -1,9 +1,11 @@
 #!/bin/bash
-
-# sudo docker build -t frontend:1.0 .
+sudo docker rm -f frontend && \
+sudo docker system prune -af --volumes && \
+sudo docker build -t frontend:1.0 . && \
 
 sudo docker run \
     -itd \
+    --name frontend \
     --rm \
     -v xdx:/app \
     -p 3000:3000 \
