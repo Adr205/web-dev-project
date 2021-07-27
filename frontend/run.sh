@@ -3,7 +3,7 @@
 # sudo docker build -t frontend:1.0 .
 
 sudo docker run \
-    -it \
+    -itd \
     --rm \
     -v xdx:/app \
     -p 3000:3000 \
