@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import Home from '../containers/Home';
 
 const App = () => {
-
 	return(
 		<Router>
 			<Switch>

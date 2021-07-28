@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+    backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        image: backend
+        container_name: backend
+        command: npm run dev
+        volumes:
+            - ./backend:/app
+            - /app/node_modules
+        ports:
+            - "5000:5000"
+        networks:
+            - app-network
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        image: frontend
+        container_name: frontend
+        command: npm start
+        volumes:
+            - ./frontend/:/app
+            - /app/node_modules
+        depends_on:
+            - backend
+        ports:
+            - "3000:3000"
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    node_modules:
+    web-root:
+        driver: local
