@@ -7,4 +7,4 @@ then
     sudo docker rm -f $(sudo docker ps -aq)
 fi
 
-sudo docker-compose up --build
+sudo docker compose up --build
