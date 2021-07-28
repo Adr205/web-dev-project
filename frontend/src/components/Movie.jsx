@@ -13,12 +13,12 @@ const setVoteClass = (vote) =>{
     }
 }
 
-const Movie = ({title,poster_path, overview,vote_average}) => 
+const Movie = ({name,background_image, overview,rating}) => 
     <div className="movie">
-        <img src={poster_path ? IMG_API + poster_path: "https://cinemaone.net/images/movie_placeholder.png"} alt={title} ></img>
+        <img src={background_image} alt={name} ></img>
         <div className="movie-info">
-            <h3>{title}</h3>
-            <span className={`tag ${setVoteClass(vote_average)}`}>{vote_average}</span>
+            <h3>{name}</h3>
+            <span className={`tag ${setVoteClass(rating)}`}>{rating}</span>
         </div>
         <div className="movie-over">
             <h2>Overview: </h2>
