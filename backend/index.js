@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 api(app);
 
 app.get('/', (req, res) => {
-    res.send('IT WORKS');
+    res.send('FUNCIONAAAA');
 });
 
 app.listen(config.port), () => {
