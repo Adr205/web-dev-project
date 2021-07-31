@@ -43,9 +43,6 @@ const Header = ({apis}) => {
                 <input id="searchBar" type="search" placeholder="Search..." className="search" value={searchTerm} onChange={handleOnChange}/>
                 <input id="searchBar" type="search" placeholder="Search..." className="search" value={searchTerm} onChange={handleOnChange}/>
             </form> */}
-            {
-                console.log(apis)
-            }
         </header>
     )
 };

@@ -6,7 +6,6 @@ const Layout = ({apis, children}) => {
         <>
             <Header apis={apis} />
             {children}
-            {console.log(apis)}
         </>
     )
 }
