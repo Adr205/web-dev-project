@@ -1,0 +1,11 @@
+img{
+    width: 25%;
+}
+
+.game-info-container{
+    text-align: center;
+}
+
+.game-info-container h1{
+    font-size: 4rem;
+}
