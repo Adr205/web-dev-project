@@ -1,9 +1,9 @@
 import React from 'react';
 
-const GameInfo = ({name}) => {
+const GameInfo = ({id}) => {
 
     return(
-        <h1>{name}</h1>
+        <h1>{id}</h1>
     )
 }
 

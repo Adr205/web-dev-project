@@ -14,9 +14,10 @@ const setVoteClass = (vote) => {
     }
 }
 
-const Game = ({ name, background_image, overview, rating }) => {
-    let gameURL = name.split(' ').join('-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
-    gameURL = `game/${gameURL}`;
+const Game = ({ id, name, background_image, overview, rating}) => {
+    // let gameURL = name.split(' ').join('-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
+    // gameURL = `game/${gameURL}`;
+    let gameURL = `game/${id}`;
     return (
         <Link to={gameURL} >
             <div className="game">

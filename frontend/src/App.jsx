@@ -9,10 +9,10 @@ const GSearchAPI = config.api.GamesSearchApi;
 const GSearchOrderAPI = config.api.GameSearchOrdering;
 
 const GetGameInfo = () => {
-	let { name } = useParams();
+	let { id } = useParams();
 
 	return (
-		<GameInfo name={name} />
+		<GameInfo id={id} />
 	)
 }
 
@@ -22,7 +22,7 @@ const App = () => {
 			<Switch>
 				<Layout apis={{ GSearchAPI: GSearchAPI, GSearchOrderAPI: GSearchOrderAPI }}>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/game/:name" children={<GetGameInfo/>} />
+					<Route exact path="/game/:id" children={<GetGameInfo/>} />
 				</Layout>
 			</Switch>
 		</Router>
