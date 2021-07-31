@@ -1,7 +1,7 @@
 import React from 'react';
 const config = require("../config");
 
-const IMG_API =  config.api.Images_Api;
+// const IMG_API =  config.api.Images_Api;
 
 const setVoteClass = (vote) =>{
     if(vote >= 8){
@@ -13,17 +13,17 @@ const setVoteClass = (vote) =>{
     }
 }
 
-const Movie = ({name,background_image, overview,rating}) => 
-    <div className="movie">
+const Game = ({name,background_image, overview,rating}) => 
+    <div className="game">
         <img src={background_image} alt={name} ></img>
-        <div className="movie-info">
+        <div className="game-info">
             <h3>{name}</h3>
             <span className={`tag ${setVoteClass(rating)}`}>{rating}</span>
         </div>
-        <div className="movie-over">
+        <div className="game-over">
             <h2>Overview: </h2>
             <p>{overview}</p>
         </div>
     </div>
 
-export default Movie;
+export default Game;
