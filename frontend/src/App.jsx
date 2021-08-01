@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+import { useFirebaseApp } from 'reactfire';
 import Layout from './components/Layout';
 import Home from './containers/Home';
 import GameInfo from './containers/GameInfo';
@@ -17,6 +18,8 @@ const GetGameInfo = () => {
 }
 
 const App = () => {
+	const firebase = useFirebaseApp();
+	console.log(firebase)
 	return (
 		<Router>
 			<Switch>
