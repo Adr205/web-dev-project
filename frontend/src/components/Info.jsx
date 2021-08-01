@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Info = ({ name, background_image, description, released }) => {
+const Info = ({ name, background_image, description_raw, released }) => {
 
     return (
         <div className="game-info-container">
@@ -10,7 +10,7 @@ const Info = ({ name, background_image, description, released }) => {
                 <img src={background_image} alt={name} />
             </div>
             <div className="game-center">
-                <p className="description">{description}</p>
+                <p className="description">{description_raw}</p>
                 <p className="date">Released Date: {released}</p>
             </div>
             <div className="game-photos-ingame">
