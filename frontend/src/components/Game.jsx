@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const config = require("../config");
+// const config = require("../config");
 
 // const IMG_API =  config.api.Images_Api;
 
