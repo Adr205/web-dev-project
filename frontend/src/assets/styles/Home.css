@@ -76,6 +76,8 @@ header form{
   position: relative;
   margin: 1rem;
   width: 30rem;
+  color: white;
+  text-decoration: none;
 }
 
 .game img{

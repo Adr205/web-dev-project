@@ -17,12 +17,15 @@ const GFeaturedAPI = config.api.GamesFeaturedApi;
 const Home = () => {
     const [games, setGames] = useState([]);
 
-    const getGame = (API) => {
-        fetch(API)
-            .then((res) => res.json())
-            .then((data) => {
-                setGames(data.results);
-            })
+    const getGame = async (API) => {
+        // fetch(API)
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         setGames(data.results);
+        //     })
+        const response = await fetch(API);
+        const data = await response.json();
+        setGames(data.results); 
     }
 
     useEffect(() => {
