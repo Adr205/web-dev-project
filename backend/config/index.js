@@ -6,7 +6,7 @@ const config = {
         port: process.env.PORT || 5000
     },
     db: {
-        connectionUrl: process.env.MONGO_URL || 'mongodb://localhost/crud-mongo'
+        connectionUrl: process.env.MONGO_URL || 'mongodb+srv://raul:hola@cluster0.elel1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     }
     
 }
