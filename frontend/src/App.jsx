@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-
 import { useFirebaseApp } from 'reactfire';
 import Layout from './components/Layout';
 import Home from './containers/Home';
+import SignUp from './containers/SignUp';
 import GameInfo from './containers/GameInfo';
 const config = require('./config');
 
@@ -19,12 +20,13 @@ const GetGameInfo = () => {
 
 const App = () => {
 	const firebase = useFirebaseApp();
-	console.log(firebase)
+	// console.log(firebase)
 	return (
 		<Router>
 			<Switch>
 				<Layout apis={{ GSearchAPI: GSearchAPI, GSearchOrderAPI: GSearchOrderAPI }}>
 					<Route exact path="/" component={Home} />
+					<Route exact path="/signup" component={SignUp}/>
 					<Route exact path="/game/:id" children={<GetGameInfo/>} />
 				</Layout>
 			</Switch>
