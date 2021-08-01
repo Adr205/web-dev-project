@@ -1,11 +1,57 @@
-img{
-    width: 25%;
+html{
+    box-sizing: border-box; 
+    font-size: 62.5%;
+}
+
+*:before,
+*.after {
+    box-sizing: inherit;
 }
 
 .game-info-container{
-    text-align: center;
+    display: flex;
+    margin-top: 4rem;
 }
 
 .game-info-container h1{
     font-size: 4rem;
+}
+
+.game-info-container img{
+    width: 50rem;
+    
+}
+
+.game-left{
+    margin-left: 2rem;
+}
+
+.game-left img{
+    margin-top: 10rem;
+}
+
+.game-center{
+    max-width: 30%;
+    margin-left: 2rem;
+    
+}
+
+.game-center p{
+    font-size: 2rem;
+}
+
+.game-center .date{
+    text-align: end;
+}
+
+.game-photos-ingame{
+    margin-left: 3rem;
+}
+
+.game-photos-ingame img{
+    width: 70rem;
+}
+
+.game-photos-ingame img:last-of-type{
+    margin-top: 5rem;
 }

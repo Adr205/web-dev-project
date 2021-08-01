@@ -14,7 +14,7 @@ const GameInfo = ({id}) => {
     const [info, setInfo] = useState([]);
     const [photos, setPhotos] = useState([]);
     var props = {};
-    
+
     const getGame = (API) => {
          fetch(API)
             .then((res) => res.json())
@@ -34,13 +34,14 @@ const GameInfo = ({id}) => {
     }
 
     useEffect(  () => {
-        setProps(photos,info);
-          getPhotos(lPhotos);
-          getGame(link);
+            getPhotos(lPhotos);
+            getGame(link);
     },[]);
     
+     setProps(photos,info);       
+    
 
-    async function setProps(photos,info){
+     function setProps(photos,info){
         props =  {
             game : info,
             image : photos
@@ -49,7 +50,7 @@ const GameInfo = ({id}) => {
     }
 
     // console.log(props);
-    return(
+     return(
         <>
         <Info {...props}/>
         </>
