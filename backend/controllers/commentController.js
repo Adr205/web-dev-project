@@ -7,6 +7,7 @@ const firestore = firebase.firestore();
 const addComment = async (req, res, next) => {
     try {
         const data = req.body;
+        console.log(data);
         await firestore.collection('comments').doc().set(data);
         res.send('Record saved succesfully');
     } catch (error) {
