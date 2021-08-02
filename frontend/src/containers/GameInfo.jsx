@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../assets/styles/GameInfo.css';
 import Info from "../components/Info";
+import Comment from "../components/Comment";
+import NewComment from "../components/NewComment";
 const config = require("../config");
 // const UGS = config.api.UniqueGameSearch;
 // const KEY = config.api.API_Key;
@@ -62,6 +64,11 @@ const GameInfo = ({ id }) => {
             {/* <Info {...props} /> */}
             {/* {console.log(gameInfo)} */}
             <Info {...gameInfo} />
+            <h2 className="reviews-title">Users Reviews</h2>
+            <NewComment/>
+            <div className="reviews-container">
+                <Comment id={id}/>
+            </div>
         </>
     )
 }
