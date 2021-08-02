@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
-import { useFirebaseApp } from 'reactfire';
+import { useFirebaseApp, useUser } from 'reactfire';
+import 'firebase/auth';
 import Layout from './components/Layout';
 import Home from './containers/Home';
 import SignUp from './containers/SignUp';
@@ -19,8 +20,9 @@ const GetGameInfo = () => {
 }
 
 const App = () => {
-	const firebase = useFirebaseApp();
 	// console.log(firebase)
+	const user = useUser();
+	console.log(user)
 	return (
 		<Router>
 			<Switch>
