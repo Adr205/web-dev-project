@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import 'firebase/auth';
-import { useFirebaseApp, useUser } from 'reactfire';
+import { Redirect } from 'react-router-dom';
+// import 'firebase/auth';
+// import { useFirebaseApp, useUser } from 'reactfire';
 import '../assets/styles/Login.css';
 
 
@@ -8,12 +9,17 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const firebase = useFirebaseApp();
-    const user = useUser();
+    // const firebase = useFirebaseApp();
+    // const user = useUser();
 
-    const login = async () => {
-        await firebase.auth().signInWithEmailAndPassword(email, password);
-    }
+    // const login = async () => {
+    //     try {
+    //         await firebase.auth().signInWithEmailAndPassword(email, password);
+    //         // <Redirect to="/"/>
+    //     } catch(error) {
+    //         alert(error);
+    //     }
+    // }
 
     return (
         <section className="signup-container">
@@ -21,13 +27,8 @@ const Login = () => {
                 <label htmlFor="email" className="signup-label">Email</label>
                 <input type="email" className="signup-input" onChange={(event) => setEmail(event.target.value)} />
                 <label htmlFor="password" className="signup-label">Password</label>
-                <input type="email" className="signup-input" onChange={(event) => setPassword(event.target.value)} />
-                <button onClick={login}>Sign Up</button>
-                {
-                    // user ? <h5>{user.data.email}</h5> : null
-                    // console.log(typeof(user))
-                    // console.log(user.data.email)
-                }
+                <input type="password" className="signup-input" onChange={(event) => setPassword(event.target.value)} />
+                {/* <button onClick={login}>Log in</button> */}
             </div>
         </section>
     )

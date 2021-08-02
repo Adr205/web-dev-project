@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
-import { useFirebaseApp, useUser } from 'reactfire';
-import 'firebase/auth';
+import { AuthProvider } from './contexts/AuthContext';
+// import { useFirebaseApp, useUser } from 'reactfire';
+// import 'firebase/auth';
 import Layout from './components/Layout';
 import Home from './containers/Home';
 import SignUp from './containers/SignUp';
@@ -22,19 +23,20 @@ const GetGameInfo = () => {
 
 const App = () => {
 	// console.log(firebase)
-	const user = useUser();
-	console.log(user)
+	// console.log(user)
 	return (
-		<Router>
-			<Switch>
-				<Layout apis={{ GSearchAPI: GSearchAPI, GSearchOrderAPI: GSearchOrderAPI }}>
-					<Route exact path="/" component={Home} />
-					<Route exact path="/signup" component={SignUp}/>
-					<Route exact path="/login" component={Login}/>
-					<Route exact path="/game/:id" children={<GetGameInfo/>} />
-				</Layout>
-			</Switch>
-		</Router>
+		<AuthProvider>
+			<Router>
+				<Switch>
+					<Layout apis={{ GSearchAPI: GSearchAPI, GSearchOrderAPI: GSearchOrderAPI }}>
+						<Route exact path="/" component={Home} />
+						<Route exact path="/signup" component={SignUp} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/game/:id" children={<GetGameInfo />} />
+					</Layout>
+				</Switch>
+			</Router>
+		</AuthProvider>
 	)
 }
 
