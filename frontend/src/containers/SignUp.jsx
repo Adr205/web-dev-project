@@ -1,13 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-// import { useFirebaseApp, useUser } from 'reactfire';
-// import 'firebase/auth';
 import { useAuth } from '../contexts/AuthContext';
 import '../assets/styles/SignUp.css';
 
 const SignUp = () => {
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
@@ -34,15 +30,6 @@ const SignUp = () => {
         }
         setLoading(false);
     }
-
-    // const firebase = useFirebaseApp();
-
-    // const submit = async () => {
-    //     await firebase.auth().createUserWithEmailAndPassword(email, password);
-    // }
-
-    // console.log(user.data);
-    // console.log(user.data.email);
 
     return (
         <section className="signup-container">

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-// import 'firebase/auth';
-// import { useFirebaseApp, useUser } from 'reactfire';
 import '../../assets/styles/Header.css';
 
 const Header = ({apis}) => {
@@ -20,13 +18,7 @@ const Header = ({apis}) => {
             setError('Failed to log out');
         }
     }
-    // const firebase = useFirebaseApp();
-    // const user = useUser();
-
-    // const logout = async () => {
-    //     await firebase.auth().signOut();
-    // }
-
+ 
     return (
         <header>
             <Link to="/">
