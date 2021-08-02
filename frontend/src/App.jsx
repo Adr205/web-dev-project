@@ -5,6 +5,7 @@ import 'firebase/auth';
 import Layout from './components/Layout';
 import Home from './containers/Home';
 import SignUp from './containers/SignUp';
+import Login from './containers/Login';
 import GameInfo from './containers/GameInfo';
 const config = require('./config');
 
@@ -29,6 +30,7 @@ const App = () => {
 				<Layout apis={{ GSearchAPI: GSearchAPI, GSearchOrderAPI: GSearchOrderAPI }}>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/signup" component={SignUp}/>
+					<Route exact path="/login" component={Login}/>
 					<Route exact path="/game/:id" children={<GetGameInfo/>} />
 				</Layout>
 			</Switch>
