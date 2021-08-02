@@ -43,8 +43,8 @@ const Comment = ({ gameId }) => {
         await response.json();
     }
 
-    const deleteComment = async (API, id) => {
-        const response = await fetch(`${API}/${id}`,  {
+    const deleteComment = async (id) => {
+        const response = await fetch(`http://localhost:5000/api/comment/${id}`,  {
             method: 'DELETE',
             mode: 'cors',
             cache: 'no-cache',
@@ -62,7 +62,7 @@ const Comment = ({ gameId }) => {
     }
 
     const handleDelete = (id) => {
-        deleteComment(API, id)
+        deleteComment(id)
     }
 
     return (
@@ -99,7 +99,7 @@ const Comment = ({ gameId }) => {
                                 }
                                 {
                                     comment.author === currentUser.email ?
-                                        <button onClick={() => handleDelete()} className="options">
+                                        <button onClick={() => handleDelete(comment.id)} className="options">
                                             <h3>Delete</h3>
                                         </button>:
                                         null
