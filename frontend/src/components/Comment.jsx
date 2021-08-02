@@ -3,13 +3,14 @@ import { useAuth } from '../contexts/AuthContext';
 import '../assets/styles/Comment.css';
 
 const Comment = ({ gameId }) => {
-    const API = 'http://localhost:5000/api/comments';
+    const API_GET = 'http://localhost:5000/api/comments';
+    const API = 'http://localhost:5000/api/comment';
     const [comments, setComments] = useState([]);
     const [edit, setEdit] = useState(false);
     const { currentUser } = useAuth();
 
-    const getComments = async (API) => {
-        const response = await fetch(API);
+    const getComments = async (API_GET) => {
+        const response = await fetch(API_GET);
         const comments = await response.json();
         setComments(comments)
         // console.log(gameInfo)
@@ -17,30 +18,33 @@ const Comment = ({ gameId }) => {
 
     useEffect(() => {
         // getPhotos(lPhotos);
-        getComments(API);
+        getComments(API_GET);
     }, []);
 
-    const handleEdit = () => {
-        // console.log(gameId) 
-        const s = 1
+    const deleteComment = async (API, id) => {
+        const response = await fetch(`${API}/${id}`,  {
+            method: 'DELETE',
+            mode: 'cors',
+            cache: 'no-cache',
+        })
+        const comment = await response.json();
     }
 
-    const handleDelete = () => {
-        // console.log(gameId)
-        const s = 1
-        
+    const handleEdit = (id) => {
+        // alert(id) 
     }
 
-    // console.log(comments)
+    const handleDelete = (id) => {
+        deleteComment(API, id)
+    }
 
     return (
         <>
             {
                 comments.map((comment) => {
                     if (comment.gameId === gameId) {
-                       
                         return (
-                            <div className="review-container">
+                            <div className="review-container" key={comment.id}>
                                 {/* {console.log(comment)} */}
                                 <div className="review-header">
                                     <h3 className="review-title">{comment.title}</h3>
@@ -53,14 +57,14 @@ const Comment = ({ gameId }) => {
                                 {console.log(currentUser.email)} */}
                                 {
                                     comment.author === currentUser.email ?
-                                        <a onClick={handleEdit(comment.gameId)} href="" className="options">
+                                        <a onClick={handleEdit(comment.id)} href="" className="options">
                                             <h3>Edit</h3>
                                         </a>:
                                         null
                                 }
                                 {
                                     comment.author === currentUser.email ?
-                                        <a onClick={handleDelete(comment.gameId)} href="" className="options">
+                                        <a onClick={handleDelete(comment.id)} href="" className="options">
                                             <h3>Delete</h3>
                                         </a>:
                                         null
