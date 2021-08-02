@@ -14,7 +14,7 @@ const addComment = async (req, res, next) => {
     }
 }
 
-const getAllComments = async (req, res, next) => {
+const getAllCommentsByGame = async (req, res, next) => {
     try {
         const comments = await firestore.collection('comments');
         const data = await comments.get();
@@ -26,10 +26,10 @@ const getAllComments = async (req, res, next) => {
             data.forEach(doc => {
                 const comment = new Comment(
                     doc.id,
+                    doc.data().gameId,
                     doc.data().date,
                     doc.data().author,
                     doc.data().text,
-                    doc.data().edit
                 );
                 commentsArray.push(comment);
             });
@@ -40,7 +40,31 @@ const getAllComments = async (req, res, next) => {
     }
 }
 
+const updateComment = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const data = req.body;
+        const comment = await forestore.collection('comments').doc(id);
+        await MediaStreamAudioDestinationNode.update(data);
+        res.send('Comment modified succesfully');
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
+const deleteComment = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        await firestore.collection('comments').doc(id).delete();
+        res.send('Comment deleted succesfully');
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
 module.exports = {
     addComment,
-    getAllComments
+    getAllCommentsByGame,
+    updateComment,
+    deleteComment
 }

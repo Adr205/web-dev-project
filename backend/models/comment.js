@@ -1,10 +1,10 @@
 class Comment {
-    constructor(id, date, author, text, edit) {
+    constructor(id, gameId, date, author, text) {
         this.id = id;
+        this.gameId = gameId;
         this.date = date;
         this.author = author;
         this.text = text;
-        this.edit = edit;
     }
 }
 
