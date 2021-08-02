@@ -1,9 +1,10 @@
 const express = require('express');
-const {addComment} = require('../controllers/student/Controller');
+const {addComment, getAllComments} = require('../controllers/commentController');
 
 const router = express.Router();
-router.post('/add-comment', addComment);
 
+router.post('/comment', addComment);
+router.get('/comments', getAllComments);
 // router.get('/comments', async (req, res, next) => {
 //     var tasks = await task.find();
 //     try {
