@@ -7,6 +7,7 @@ const firestore = firebase.firestore();
 const addComment = async (req, res, next) => {
     try {
         const data = req.body;
+        console.log(data);
         await firestore.collection('comments').doc().set(data);
         res.send('Record saved succesfully');
     } catch (error) {
@@ -30,6 +31,7 @@ const getAllCommentsByGame = async (req, res, next) => {
                     doc.data().date,
                     doc.data().author,
                     doc.data().text,
+                    doc.data().title,
                 );
                 commentsArray.push(comment);
             });
@@ -44,8 +46,9 @@ const updateComment = async (req, res, next) => {
     try {
         const id = req.params.id;
         const data = req.body;
-        const comment = await forestore.collection('comments').doc(id);
-        await MediaStreamAudioDestinationNode.update(data);
+        console.log(data)
+        const comment = await firestore.collection('comments').doc(id);
+        await comment.update(data);
         res.send('Comment modified succesfully');
     } catch (error) {
         res.status(400).send(error.message);

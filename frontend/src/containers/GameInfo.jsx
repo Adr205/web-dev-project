@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import '../assets/styles/GameInfo.css';
 import Info from "../components/Info";
+import Comment from "../components/Comment";
+import NewComment from "../components/NewComment";
+import { useAuth } from '../contexts/AuthContext';
 const config = require("../config");
-// const UGS = config.api.UniqueGameSearch;
-// const KEY = config.api.API_Key;
 const API_URL = config.api.API_URL;
 const API_KEY = config.api.API_KEY;
 
-
-
-const GameInfo = ({ id }) => {
-    const API = `${API_URL}/${id}${API_KEY}`;
+const GameInfo = ({ gameId }) => {
+    const API = `${API_URL}/${gameId}${API_KEY}`;
     const [gameInfo, setGameInfo] = useState(null);
+    const { currentUser } = useAuth();
     // const link = UGS + id + KEY;
     // const lPhotos = UGS + id +"/screenshots" + KEY;
     //console.log(link);    
@@ -62,6 +62,11 @@ const GameInfo = ({ id }) => {
             {/* <Info {...props} /> */}
             {/* {console.log(gameInfo)} */}
             <Info {...gameInfo} />
+            <h2 className="reviews-title">Users Reviews</h2>
+            <NewComment gameId={gameId} author={currentUser.email} />
+            <div className="reviews-container">
+                <Comment gameId={gameId}/>
+            </div>
         </>
     )
 }

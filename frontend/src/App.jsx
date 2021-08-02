@@ -16,7 +16,7 @@ const GetGameInfo = () => {
 	let { id } = useParams();
 
 	return (
-		<GameInfo id={id} />
+		<GameInfo gameId={id} />
 	)
 }
 
