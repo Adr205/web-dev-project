@@ -1,5 +1,5 @@
-html{
-    box-sizing: border-box; 
+html {
+    box-sizing: border-box;
     font-size: 62.5%;
 }
 
@@ -8,50 +8,57 @@ html{
     box-sizing: inherit;
 }
 
-.game-info-container{
+.game-info-container {
     display: flex;
     margin-top: 4rem;
 }
 
-.game-info-container h1{
+.game-info-container h1 {
     font-size: 4rem;
 }
 
-.game-info-container img{
+.game-info-container img {
     width: 50rem;
-    
 }
 
-.game-left{
+.game-left {
     margin-left: 2rem;
 }
 
-.game-left img{
+.game-left img {
     margin-top: 10rem;
 }
 
-.game-center{
+.game-center {
     max-width: 30%;
     margin-left: 2rem;
-    
 }
 
-.game-center p{
+.game-center p {
     font-size: 2rem;
 }
 
-.game-center .date{
+.game-center .date {
     text-align: end;
 }
 
-.game-photos-ingame{
+.game-photos-ingame {
     margin-left: 3rem;
 }
 
-.game-photos-ingame img{
+.game-photos-ingame img {
     width: 70rem;
 }
 
-.game-photos-ingame img:last-of-type{
+.game-photos-ingame img:last-of-type {
     margin-top: 5rem;
+}
+
+@media(max-width: 768px) {
+    .game-info-container {
+        display: block;
+    }
+    .game-center {
+        width: 100%;
+    }
 }
