@@ -26,10 +26,6 @@ const Game = ({ id, name, background_image, overview, rating}) => {
                     <h3>{name}</h3>
                     <span className={`tag ${setVoteClass(rating)}`}>{rating}</span>
                 </div>
-                <div className="game-over">
-                    <h2>Overview: </h2>
-                    <p>{overview}</p>
-                </div>
             </div>
         </Link>
     )

@@ -37,7 +37,7 @@ const Header = ({apis}) => {
             </Link>
             <form>
                 {/* <input id="searchBar" type="search" placeholder="Search..." className="search" value={searchTerm} onChange={handleOnChange}/> */}
-                <input/>
+                {/* <input/> */}
             </form>
             {/* <form onSubmit={handleOnSubmit}>
                 <input id="searchBar" type="search" placeholder="Search..." className="search" value={searchTerm} onChange={handleOnChange}/>
