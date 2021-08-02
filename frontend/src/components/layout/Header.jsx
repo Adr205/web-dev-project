@@ -1,10 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory} from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 // import 'firebase/auth';
 // import { useFirebaseApp, useUser } from 'reactfire';
 import '../../assets/styles/Header.css';
 
 const Header = ({apis}) => {
+    const [error, setError] = useState('');
+    const { currentUser, logout } = useAuth();
+    const history = useHistory();
+
+    const handleLogout = async () => {
+        setError('')
+
+        try {
+            await logout();
+            history.pushState('/login');
+        } catch {
+            setError('Failed to log out');
+        }
+    }
     // const firebase = useFirebaseApp();
     // const user = useUser();
 
@@ -17,13 +32,9 @@ const Header = ({apis}) => {
             <Link to="/">
                 <h1 className="title">GameRank</h1>
             </Link>
-            {/* { user ? 
-                <Link to="/login">
-                    <h1>
-                        Log out
-                    </h1>
-                </Link>
-                : null } */}
+            <Link>
+                <h2 onClick={handleLogout}>Log out</h2>
+            </Link>
         </header>
     )
 };

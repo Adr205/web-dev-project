@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 // import { useFirebaseApp, useUser } from 'reactfire';
 // import 'firebase/auth';
 import { useAuth } from '../contexts/AuthContext';
@@ -13,6 +14,7 @@ const SignUp = () => {
     const { signup } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState('');
+    const history = useHistory();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,6 +28,7 @@ const SignUp = () => {
             setError('');
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
+            history.push('/');
         } catch {
             setError('Failed to create an account');
         }
@@ -53,6 +56,7 @@ const SignUp = () => {
                 <label className="signup-label">Password Confirmation</label>
                 <input type="password" className="signup-input" ref={passwordConfirmRef} />
                 <button disabled={loading} type="submit">Sign Up</button>
+                <h2>Already have an account? <Link to="/login">Sign Up</Link></h2>
             </form>
         </section>
     )

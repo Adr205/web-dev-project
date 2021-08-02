@@ -8,6 +8,7 @@ import Home from './containers/Home';
 import SignUp from './containers/SignUp';
 import Login from './containers/Login';
 import GameInfo from './containers/GameInfo';
+import PrivateRoute from './components/PrivateRoute';
 const config = require('./config');
 
 const GSearchAPI = config.api.GamesSearchApi;
@@ -25,18 +26,18 @@ const App = () => {
 	// console.log(firebase)
 	// console.log(user)
 	return (
-		<AuthProvider>
-			<Router>
+		<Router>
+			<AuthProvider>
 				<Switch>
 					<Layout apis={{ GSearchAPI: GSearchAPI, GSearchOrderAPI: GSearchOrderAPI }}>
-						<Route exact path="/" component={Home} />
+						<PrivateRoute exact path="/" component={Home} />
+						<PrivateRoute exact path="/game/:id" children={<GetGameInfo />} />
 						<Route exact path="/signup" component={SignUp} />
 						<Route exact path="/login" component={Login} />
-						<Route exact path="/game/:id" children={<GetGameInfo />} />
 					</Layout>
 				</Switch>
-			</Router>
-		</AuthProvider>
+			</AuthProvider>
+		</Router>
 	)
 }
 
