@@ -14,6 +14,7 @@ const NewComment = ({ author, gameId, id }) => {
             author: author,
             gameId: gameId
         }
+        console.log(data);
         
         const response = await fetch(API, {
             method: 'POST',
@@ -39,12 +40,6 @@ const NewComment = ({ author, gameId, id }) => {
             setError('Failed to post comment');
         }
     }
-
-
-    useEffect(() => {
-        // getPhotos(lPhotos);
-        postComment(API);
-    }, []);
 
     return (
         <div className="newComment">
