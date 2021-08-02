@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
-// import { useFirebaseApp, useUser } from 'reactfire';
-// import 'firebase/auth';
 import Layout from './components/Layout';
 import Home from './containers/Home';
 import SignUp from './containers/SignUp';
@@ -23,8 +21,6 @@ const GetGameInfo = () => {
 }
 
 const App = () => {
-	// console.log(firebase)
-	// console.log(user)
 	return (
 		<Router>
 			<AuthProvider>
