@@ -30,6 +30,7 @@ const getAllCommentsByGame = async (req, res, next) => {
                     doc.data().date,
                     doc.data().author,
                     doc.data().text,
+                    doc.data().title,
                 );
                 commentsArray.push(comment);
             });

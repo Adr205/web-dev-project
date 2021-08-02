@@ -17,7 +17,6 @@ const Comment = ({ id }) => {
         getComments(API);
     }, []);
 
-
     return (
         <>
             {
@@ -25,8 +24,8 @@ const Comment = ({ id }) => {
                     return (
                         <div className="review-container">
                             <div className="review-header">
-                                <h3 className="review-title">Game very boring</h3>
-                                <h4 className="review-user"> {comment.user} <span className="review-date">29 July 2021</span> </h4>
+                                <h3 className="review-title">{comment.title}</h3>
+                                <h4 className="review-user"> {comment.author} <span className="review-date">29 July 2021</span> </h4>
                             </div>
                             <div className="review-body">
                                 <p className="review-body-text">{comment.text}</p>
@@ -36,6 +35,7 @@ const Comment = ({ id }) => {
                     // console.log(comment.text);
                 })
             }
+            {console.log(comments)}
         </>
     )
 }
