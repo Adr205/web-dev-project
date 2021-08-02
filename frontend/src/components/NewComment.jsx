@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../assets/styles/Comment.css';
 
-const NewComment = ({ author, gameId }) => {
+const NewComment = ({ author, gameId, id }) => {
     const API = 'http://localhost:5000/api/comment';
     const titleRef = useRef();
     const commentRef = useRef();
@@ -15,7 +15,6 @@ const NewComment = ({ author, gameId }) => {
             gameId: gameId
         }
         
-        console.log(data)
         const response = await fetch(API, {
             method: 'POST',
             mode: 'cors',

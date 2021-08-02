@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 import '../assets/styles/Comment.css';
 
-const Comment = ({ id }) => {
+const Comment = ({ gameId }) => {
     const API = 'http://localhost:5000/api/comments';
     const [comments, setComments] = useState([]);
+    const [edit, setEdit] = useState(false);
+    const { currentUser } = useAuth();
 
     const getComments = async (API) => {
         const response = await fetch(API);
@@ -17,13 +20,28 @@ const Comment = ({ id }) => {
         getComments(API);
     }, []);
 
+    const handleEdit = () => {
+        // console.log(gameId) 
+        const s = 1
+    }
+
+    const handleDelete = () => {
+        // console.log(gameId)
+        const s = 1
+        
+    }
+
+    // console.log(comments)
+
     return (
         <>
             {
                 comments.map((comment) => {
-                    if (comment.gameId === id) {
+                    if (comment.gameId === gameId) {
+                       
                         return (
                             <div className="review-container">
+                                {/* {console.log(comment)} */}
                                 <div className="review-header">
                                     <h3 className="review-title">{comment.title}</h3>
                                     <h4 className="review-user"> {comment.author} <span className="review-date">29 July 2021</span> </h4>
@@ -31,6 +49,22 @@ const Comment = ({ id }) => {
                                 <div className="review-body">
                                     <p className="review-body-text">{comment.text}</p>
                                 </div>
+                                {/* {console.log(comment.author)}
+                                {console.log(currentUser.email)} */}
+                                {
+                                    comment.author === currentUser.email ?
+                                        <a onClick={handleEdit(comment.gameId)} href="" className="options">
+                                            <h3>Edit</h3>
+                                        </a>:
+                                        null
+                                }
+                                {
+                                    comment.author === currentUser.email ?
+                                        <a onClick={handleDelete(comment.gameId)} href="" className="options">
+                                            <h3>Delete</h3>
+                                        </a>:
+                                        null
+                                }
                             </div>
                         )
                     }

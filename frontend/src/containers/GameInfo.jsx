@@ -8,8 +8,8 @@ const config = require("../config");
 const API_URL = config.api.API_URL;
 const API_KEY = config.api.API_KEY;
 
-const GameInfo = ({ id }) => {
-    const API = `${API_URL}/${id}${API_KEY}`;
+const GameInfo = ({ gameId, id }) => {
+    const API = `${API_URL}/${gameId}${API_KEY}`;
     const [gameInfo, setGameInfo] = useState(null);
     const { currentUser } = useAuth();
     // const link = UGS + id + KEY;
@@ -63,9 +63,9 @@ const GameInfo = ({ id }) => {
             {/* {console.log(gameInfo)} */}
             <Info {...gameInfo} />
             <h2 className="reviews-title">Users Reviews</h2>
-            <NewComment gameId={id} author={currentUser.email} />
+            <NewComment gameId={gameId} id={id} author={currentUser.email} />
             <div className="reviews-container">
-                <Comment id={id}/>
+                <Comment gameId={gameId}/>
             </div>
         </>
     )

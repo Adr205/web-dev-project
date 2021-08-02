@@ -87,3 +87,8 @@ textarea {
     font-size: 2rem;
     font-weight: 100;
 }
+
+.options {
+    text-decoration: none;
+    color: white;
+}
