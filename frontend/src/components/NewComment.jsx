@@ -14,7 +14,7 @@ const NewComment = ({ author, gameId, id }) => {
             author: author,
             gameId: gameId
         }
-        console.log(data);
+        // console.log(data);
         
         const response = await fetch(API, {
             method: 'POST',
